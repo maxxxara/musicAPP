@@ -2,19 +2,23 @@ import {React, Fragment} from 'react';
 import SearchEl from '.././res/SearchEl';
 import Music from '.././res/Music';
 
-const Home = ({ items, onChoose }) => {
+const Home = ({ items, onChoose, search, setSearch }) => {
 	let onClick = (link,id) => {
 		onChoose(link,id)
 	}
+	let sea = (value) => {
+		setSearch(value)
+	}
 	return(
 		<Fragment>
-			<SearchEl />
+			<SearchEl search={search} setSearch={sea} />
 			<section className="musics">
 				<div className="container">
 					<div className="music__content">
 						<div className="musics__text">
 							New Releases and Musics
 						</div>
+						{items.length ?
 						<div className="musics__list">
 							{items.map(item =>
 								<Music
@@ -28,6 +32,7 @@ const Home = ({ items, onChoose }) => {
 								/>
 							)}
 						</div>
+						: <p className="margin30"> Nothing founded </p>}
 					</div>
 				</div>
 			</section>
