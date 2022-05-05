@@ -13,7 +13,7 @@ const Home = ({ items, onChoose }) => {
 				<div className="container">
 					<div className="music__content">
 						<div className="musics__text">
-							New Releases
+							New Releases and Musics
 						</div>
 						<div className="musics__list">
 							{items.map(item =>
